@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - CLIP Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        {% include 'layout/header.html' %}
+        {% include 'layout/sidebar.html' %}
+        
+        <main class="main">
+            <!-- Search Controls -->
+            <div class="search-controls">
+                <div class="search-tabs">
+                    <button class="tab-btn active" data-tab="text">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5z"/>
+                        </svg>
+                        Text Search
+                    </button>
+                    <button class="tab-btn" data-tab="image">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                        </svg>
+                        Image Search
+                    </button>
+                </div>
+
+                <!-- Text Search Form -->
+                <div class="search-panel active" id="text-search">
+                    <div class="search-input-group">
+                        <input type="text" class="search-input" placeholder="Enter search keywords...">
+                        <button class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+
+                <!-- Image Search Form -->
+                <div class="search-panel" id="image-search">
+                    <div class="image-upload-area">
+                        <div class="upload-zone">
+                            <svg width="48" height="48" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 7v2.99s-1.99.01-2 0V7h-3s.01-1.99 0-2h3V2h2v3h3v2h-3zm-3 4V8h-3V5H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8h-3zM5 19l3-4 2 3 3-4 4 5H5z"/>
+                            </svg>
+                            <p>Drag & drop an image or click to upload</p>
+                            <input type="file" class="file-input" accept="image/*">
+                        </div>
+                        <button class="btn btn-primary">Search Similar Images</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Results -->
+            <div class="search-results">
+                <div class="results-header">
+                    <h2>Search Results</h2>
+                    <div class="results-meta">
+                        <span class="result-count">0 results found</span>
+                        <div class="sort-controls">
+                            <label>Sort by:</label>
+                            <select class="sort-select">
+                                <option value="relevance">Relevance</option>
+                                <option value="newest">Newest First</option>
+                                <option value="oldest">Oldest First</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Grid -->
+                <div class="results-grid">
+                    <!-- Sample Result Card -->
+                    <div class="result-card">
+                        <img src="" alt="Result" class="result-image">
+                        <div class="result-info">
+                            <div class="result-title">Result</div>
+                            <div class="result-meta">
+                                <span class="upload-date">Uploaded Jan 20, 2024</span>
+                                <span class="similarity">98% match</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="btn" disabled>Previous</button>
+                    <div class="page-numbers">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <span>...</span>
+                        <button class="page-btn">10</button>
+                    </div>
+                    <button class="btn">Next</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

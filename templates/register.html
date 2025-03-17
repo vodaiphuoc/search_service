@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - CLIP Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box fade-in">
+            <!-- Register Form Side -->
+            <div class="auth-side slide-up">
+                <form class="auth-form" id="registerForm">
+                    <div class="auth-header">
+                        <h1>Create Account</h1>
+                        <p>Join our community today</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerUsername">Username</label>
+                        <input type="text" id="registerUsername" class="form-control" placeholder="Choose a username">
+                        <div class="form-error">Username must be 3-20 characters</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" class="form-control" placeholder="Enter your email">
+                        <div class="form-error">Please enter a valid email address</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" class="form-control" placeholder="Create a password">
+                        <div class="form-error">Password must include letters, numbers, and special characters</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password">
+                        <div class="form-error">Passwords do not match</div>
+                    </div>
+
+                    <button type="submit" class="auth-btn">Create Account</button>
+
+                    <div class="auth-divider">
+                        <span>OR</span>
+                    </div>
+
+                    <div class="auth-links">
+                        Already have an account? <a href="/login" id="showLogin">Login</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Welcome Side -->
+            <div class="auth-welcome">
+                <h2>Welcome to CLIP Search</h2>
+                <p>Join our platform to manage and search your images using AI technology</p>
+                <svg width="200" height="200" viewBox="0 0 24 24" fill="white" opacity="0.1">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/service.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

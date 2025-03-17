@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register - CLIP Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box fade-in">
+            <!-- Login Form Side -->
+            <div class="auth-side slide-up">
+                <form class="auth-form" id="loginForm">
+                    <div class="auth-header">
+                        <h1>Welcome Back!</h1>
+                        <p>Login to your account</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginUsername">Username</label>
+                        <input type="text" id="loginUsername" class="form-control" placeholder="Enter your username">
+                        <div class="form-error">Please enter a valid username</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password">
+                        <div class="form-error">Password must be at least 8 characters</div>
+                    </div>
+
+                    <button type="submit" class="auth-btn">Login</button>
+
+                    <div class="auth-links">
+                        <a href="#" id="forgotPassword">Forgot Password?</a>
+                    </div>
+
+                    <div class="auth-divider">
+                        <span>OR</span>
+                    </div>
+
+                    <div class="auth-links">
+                        Don't have an account? <a href="/register" id="showRegister">Register Now</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Welcome Side -->
+            <div class="auth-welcome">
+                <h2>CLIP Image Search</h2>
+                <p>Search and manage your images using advanced AI technology</p>
+                <svg width="200" height="200" viewBox="0 0 24 24" fill="white" opacity="0.1">
+                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/service.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

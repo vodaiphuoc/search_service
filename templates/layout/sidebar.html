@@ -1,0 +1,33 @@
+<!-- Sidebar -->
+<aside class="sidebar">
+    <div class="logo">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L1 21h22L12 2zm0 3.83L19.13 19H4.87L12 5.83z"/>
+        </svg>
+        CLIP Search
+    </div>
+    <nav class="nav-links">
+        <a href="/" class="nav-link active">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+            </svg>
+            Dashboard
+        </a>
+        <a href="/images" class="nav-link">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z"/>
+            </svg>
+            My Images
+        </a>
+        <a href="/search" class="nav-link">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+            Search
+        </a>
+    </nav>
+</aside>
+<script src="{{ url_for('static', filename='js/service.js') }}"></script>
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIP Image Search Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        {% include 'layout/header.html' %}
+        {% include 'layout/sidebar.html' %}
+        <div id="imagePreviewModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <img id="modalImage" src="" alt="Preview">
+                <div class="modal-info">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDate"></p>
+                </div>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Upload Section -->
+            <section class="upload-section fade-in">
+                <div class="upload-title">Drag and drop images or click to upload</div>
+                <p class="upload-subtitle">Support for JPG, PNG, GIF up to 5MB</p>
+                <button class="btn btn-primary" style="margin-top: 1rem;">Select Files</button>
+            </section>
+
+            <!-- Image Gallery -->
+            <div class="gallery fade-in">
+                <!-- Sample Image Card -->
+                <div class="image-card">
+                    <img src="/api/placeholder/250/200" alt="Sample" class="image-preview">
+                    <div class="image-info">
+                        <div class="image-title">Sample Image</div>
+                        <div class="image-meta">Uploaded 2 days ago</div>
+                    </div>
+                </div>
+                <!-- Repeat image cards -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Overlay (Hidden by default) -->
+    <div class="loading-overlay" style="display: none;">
+        <div class="loader"></div>
+    </div>
+</body>
+</html>
