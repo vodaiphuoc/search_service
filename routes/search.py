@@ -24,8 +24,8 @@ def search_by_text(current_user):
         query_embedding = ai_service.get_text_embedding(data['query'])
 
         # Tìm tất cả ảnh tương tự
-        all_results = ai_service.search_similar(query_embedding, k=100)  # Lấy nhiều kết quả hơn
-        
+        all_results = ai_service.search_similar(query_embedding, k=1)  # Lấy nhiều kết quả hơn
+        print('all_results: ', all_results)
         if not all_results:
             return jsonify({
                 'results': [],
@@ -41,6 +41,9 @@ def search_by_text(current_user):
         filtered_results = []
         for idx, score in all_results:
             image = Image.query.get(int(idx))
+            print('image: ', image)
+            print('check id: ',image.user_id, current_user.user_id)
+
             if image and image.user_id == current_user.user_id:
                 filtered_results.append({
                     'image_id': image.image_id,
@@ -56,6 +59,7 @@ def search_by_text(current_user):
         start_idx = (page - 1) * per_page
         end_idx = start_idx + per_page
 
+        print('total: ', total)
         return jsonify({
             'results': filtered_results[start_idx:end_idx],
             'pagination': {

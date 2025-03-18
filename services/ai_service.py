@@ -5,6 +5,8 @@ from transformers import CLIPProcessor, CLIPModel
 import faiss
 import threading
 import os
+import json
+import requests
 
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
@@ -70,8 +72,15 @@ class AIService:
         try:
             self.load_model()  # Ensure model is loaded
             
+            # make request to translate_service
+            _reponse = requests.post(url = "http://127.0.0.1:8080/", 
+                         json = json.dumps({'query': text},ensure_ascii= False), 
+                         headers= {'Content-Type': 'application/json'}
+            )
+            translated_text = _reponse.json()['translated_text'].lower()
+            print('translated_text: ', translated_text)
             inputs = self.processor(
-                text=[text],
+                text=[translated_text],
                 return_tensors="pt",
                 padding=True,
                 truncation=True,      # <-- Bắt buộc (quan trọng)
@@ -85,6 +94,8 @@ class AIService:
             embedding = text_features.cpu().numpy()[0]
             embedding = embedding / np.linalg.norm(embedding)
             
+
+            print('done text embeddings')
             return embedding
             
         except Exception as e:

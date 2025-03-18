@@ -10,3 +10,6 @@ werkzeug
 email-validator
 Pillow
 Flask-SQLAlchemy
+fastapi
+uvicorn
+googletrans
