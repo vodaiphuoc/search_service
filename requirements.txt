@@ -13,3 +13,5 @@ Flask-SQLAlchemy
 fastapi
 uvicorn
 googletrans
+loguru
+ngrok
