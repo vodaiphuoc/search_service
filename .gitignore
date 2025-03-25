@@ -3,3 +3,4 @@ myenv/
 uploads/
 *.pdf
 *.docx
+.env

@@ -8,6 +8,9 @@ from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 import uvicorn
 import asyncio
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+
+load_dotenv() 
 
 
 NGROK_AUTH_TOKEN = os.environ['NGROK_AUTH_TOKEN']
@@ -61,7 +64,7 @@ async def homepage_router(request: Request):
 async def main():
     config = uvicorn.Config("main:app",
                             host=HTTPS_SERVER,
-                            port=APPLICATION_PORT,
+                            port=int(APPLICATION_PORT),
                             reload=True,
                             log_level="info",
                             )
